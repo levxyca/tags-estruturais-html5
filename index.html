@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAGS Estruturais HTML5</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a href="#cards">
+      <img src="img/arrow.svg" alt="arrow icon" class="arrow__icon" />
+    </a>
+    <div class="style">
+      <a href="#header__card">
+        <header class="elemento__card flex header">
+          <p class="p__tag">header</p>
+        </header>
+      </a>
+      <div class="flex">
+        <a href="#aside__card">
+          <aside class="elemento__card flex aside">
+            <p class="p__tag">aside</p>
+          </aside>
+        </a>
+        <a href="#main__card">
+          <main class="flex__main elemento__card main">
+            <p class="p__tag">main</p>
+            <a href="#article__card">
+              <article class="flex__main elemento__card article">
+                <p class="p__tag">article</p>
+                <a href="#header__card">
+                  <header class="flex__main elemento__card header__article">
+                    <p class="p__tag">header</p>
+                  </header>
+                </a>
+                <a href="#section__card">
+                  <section class="flex__main elemento__card section">
+                    <p class="p__tag">section</p>
+                  </section>
+                </a>
+                <a href="#footer__card">
+                  <footer class="flex__main elemento__card footer__article">
+                    <p class="p__tag">footer</p>
+                  </footer>
+                </a>
+              </article>
+            </a>
+          </main>
+        </a>
+      </div>
+      <a href="#footer__card">
+        <footer class="elemento__card flex footer">
+          <p class="p__tag">footer</p>
+        </footer>
+      </a>
+    </div>
+    <section class="cards" id="cards">
+      <h2 id="header__card">header</h2>
+      <p class="p__tag p__card header__card">
+        Representa um grupo de suporte introdutório ou navegacional. Pode conter
+        alguns elementos de cabeçalho mas também outros elementos como um logo,
+        seções de cabeçalho, formulário de pesquisa, e outros. Você pode ter
+        vários header em um documento HTML.
+      </p>
+      <h2 id="aside__card">aside</h2>
+      <p class="p__tag p__card aside__card">
+        Agrupa informações relacionadas ao conteúdo ao seu redor. Muito usada em
+        barras laterais(as famosas sidebars).
+      </p>
+      <h2 id="main__card">main</h2>
+      <p class="p__tag p__card main__card">
+        Define o conteúdo principal dentro do body. Não se deve incluir mais de
+        um elemento main.
+      </p>
+      <h2 id="article__card">article</h2>
+      <p class="p__tag p__card article__card">
+        Define o conteúdo principal dentro do body. Não se deve incluir mais de
+        um elemento main.
+      </p>
+      <h2 id="section__card">section</h2>
+      <p class="p__tag p__card section__card">
+        Uma seção genérica. Muita usada quando não existir um elemento semântico
+        mais específico para representá-lo.
+      </p>
+      <h2 id="footer__card">footer</h2>
+      <p class="p__tag p__card footer__card">
+        Representa o rodapé. Normalmente um rodapé contém informações sobre o
+        autor da seção de dados, direitos autorais ou links para documentos
+        relacionados.
+      </p>
+    </section>
+  </body>
+</html>

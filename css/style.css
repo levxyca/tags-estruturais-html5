@@ -110,6 +110,23 @@ a{
   height: 600px;
 }
 
+.nav {
+  width: 750px;
+  height: 30px;
+  color: #fff6ff;
+  display:flex;
+  align-items:center;
+  margin: 0px 0px 11px 0px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    margin: 5px;
+}
+
 .article {
   width: 500px;
   height: 500px;
@@ -170,6 +187,10 @@ a{
   .header {
     width: 100%;
   }
+  .nav {
+    width: 100%;
+  }
+  
   .aside {
     width: 100%;
   }

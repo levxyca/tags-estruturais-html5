@@ -178,8 +178,12 @@ a:hover .p__tag::before {
   color: var(--color-text);
 }
 
-.nav a {
-  text-decoration: none;
+.nav ul {
+  display: flex;
+  column-gap: 2ch;
+}
+
+.nav li {
   font-size: 1rem;
   letter-spacing: 0.1em;
   margin: 5px;

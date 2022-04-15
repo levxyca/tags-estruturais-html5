@@ -1,3 +1,5 @@
+@import url("./responsive.css") screen and (max-width: 800px);
+
 /* Base */
 :root {
   --color-bg: rgb(37, 37, 37);
@@ -52,7 +54,9 @@ body {
   font-family: monospace;
 }
 
-body > * { grid-column: 2; }
+body > * {
+  grid-column: 2;
+}
 
 h2 {
   font-size: 2rem;
@@ -101,10 +105,10 @@ O grid fica dessa forma
   grid-template-columns: 200px repeat(2, 1fr);
   grid-auto-rows: max-content;
   grid-template-areas:
-  "header header header"
-  "nav nav nav"
-  "aside main main"
-  "footer footer footer";
+    "header header header"
+    "nav nav nav"
+    "aside main main"
+    "footer footer footer";
   gap: 2ch;
   margin-top: 30px;
 }
@@ -117,12 +121,11 @@ O grid fica dessa forma
   width: 50px;
   height: 50px;
   position: absolute;
-  bottom: calc(100vh - 90%); left: 10%;
+  bottom: calc(100vh - 90%);
+  left: 10%;
   cursor: pointer;
   transform: translateY(10px);
-  animation:
-    arrow 500ms
-    forwards alternate infinite
+  animation: arrow 500ms forwards alternate infinite
     cubic-bezier(0.39, 0.58, 0.57, 1);
 }
 
@@ -210,7 +213,6 @@ article .elemento__card {
   padding: 2ch 0;
 }
 
-
 .article {
   display: grid;
   place-content: center start;
@@ -219,7 +221,9 @@ article .elemento__card {
   padding: 60px 20px;
 }
 
-.article a:first-child .p__tag { margin: 0; }
+.article a:first-child .p__tag {
+  margin: 0;
+}
 
 .section {
   height: 200px;
@@ -237,45 +241,12 @@ article .elemento__card {
   place-items: center;
 }
 
-/* Media Queries */
-@media (max-width: 800px) {
-  /*
-    Quando o dispositivo fica com menos de 800px de largura
-    o grid fica com apenas uma coluna, as áreas são resetadas
-    pro valor inicial (none)
-
-    Os filhos do grid tem suas grid-areas resetadas pra initial
-    (none)
-
-    Dessa forma a ordenação de empilhamento é a mesma que a ordem
-    que os elementos aparecem no DOM.
-  */
-  .tag-container {
-    grid-template-columns: 1fr;
-    grid-template-areas: initial;
-    margin-top: 30px;
-  }
-
-  .tag-container > * { grid-area: initial; }
-
-  .arrow__icon {
-    left: initial; right: 5%;
-    border-radius: 50%;
-    background-color: var(--color-text);
-  }
-
-  .arrow__icon img {
-    filter: invert(100%);
-  }
-
-  .article { grid-template-columns: 1fr; }
-}
-
 /* Animations */
 @keyframes arrow {
-  to { transform: translateY(0); }
+  to {
+    transform: translateY(0);
+  }
 }
-
 
 /* Utility */
 .flex {
@@ -284,4 +255,6 @@ article .elemento__card {
   align-items: center;
 }
 
-.p-1 { padding: 1rem; }
+.p-1 {
+  padding: 1rem;
+}

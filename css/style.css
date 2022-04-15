@@ -1,28 +1,72 @@
-body {
-  background-color: rgb(37, 37, 37);
-  margin: 0 auto;
-  max-width: 1000px;
-  height: 100vh;
+:root {
+  --color-bg: rgb(37, 37, 37);
+  --color-text: rgb(255, 246, 255);
+  --color-card: rgba(255, 246, 255, 0.9);
+  --color-card-text: var(--color-bg);
 }
 
-h2 {
+/*
+Nesse caso foi criado um grid de 3 colunas da seguinte forma:
+
+  | 1fr |   min(1000px, 100%)   | 1fr |
+
+A função min() escolhe o menor valor entre 1000px e 100%, já
+a unidade `fr` se refere a uma fração da página. Logo, em uma
+página em que a tela tem 1200px de largura:
+
+  | 100px (1fr) |       1000px     | 100px (1fr) |
+
+No caso acima a função min() avaliou que 1000px é menor que 100%
+pois 100% seria 1200px. No caso de uma tela com a largura de 800px
+
+  | 0px |   800px   | 0px |
+
+Como `fr` se refere à uma fração do > espaço restante <, a coluna
+do meio sendo igual a 100% (pois 100% agora é 800px, menor que 1000px)
+o fr vai ser igual a zero, transformando o layout de 3 colunas em um
+de uma coluna só pra mobile.
+
+
+O trecho:
+body > * { grid-column: 2; }
+
+coloca todos elementos diretamente dentro do body na coluna do meio.
+
+Caso você queira que um dos elementos ocupe 100% da largura do site,
+basta adicionar:
+
+grid-column: span 3;
+
+*/
+
+body {
+  display: grid;
+  grid-template-columns: 1fr min(1000px, 100%) 1fr;
+  background-color: var(--color-bg);
   font-family: monospace;
+}
+
+body > * { grid-column: 2; }
+
+h2 {
   font-size: 2rem;
   letter-spacing: 0.1em;
-  color: #fff6ff;
+  color: var(--color-text);
   margin: 20px 0;
 }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .style {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-flow: row wrap;
+  place-content: center;
   align-items: center;
   height: 100vh;
-  align-content: center;
 }
 
 .flex {
@@ -54,10 +98,9 @@ a { text-decoration: none; }
 }
 
 .p__tag {
-  font-family: monospace;
   letter-spacing: 0.1em;
   font-size: 1.5rem;
-  color: #fff6ff;
+  color: var(--color-text);
   margin: 0 20px;
   position: relative;
 }
@@ -81,8 +124,8 @@ a:hover .p__tag::before {
 
 .p__card {
   font-size: 1rem;
-  color: #252525;
-  background: rgba(255, 246, 255, 0.9);
+  color: var(--color-card-text);
+  background: var(--color-card);
   border-radius: 5px;
   padding: 20px;
   max-width: 700px;
@@ -96,8 +139,8 @@ a:hover .p__tag::before {
 }
 
 .elemento__card {
-  background-color: #252525;
-  border: 1px solid #fff6ff;
+  background-color: var(--color-card-text);
+  border: 1px solid var(--color-text);
   border-radius: 5px;
   cursor: pointer;
 }
@@ -129,15 +172,14 @@ a:hover .p__tag::before {
 .nav {
   width: 750px;
   height: 30px;
-  color: #fff6ff;
   display: flex;
   align-items: center;
   margin: 0px 0px 11px 0px;
+  color: var(--color-text);
 }
 
 .nav a {
   text-decoration: none;
-  font-family: monospace;
   font-size: 1rem;
   letter-spacing: 0.1em;
   margin: 5px;

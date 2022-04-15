@@ -28,21 +28,82 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+/*
+line-height ideal pra legibilidade é >= 1.5
+(fonte: https://www.w3c.br/traducoes/wcag/wcag21-pt-BR/#text-spacing)
+
+min-height: 100vh define que o body da página nunca será menor
+que o tamanho total da tela
+
+text-rendering: optimizeSpeed desabilita o kerning e as ligaturas
+de fontes pra que elas renderizem mais rapidamente
+(fonte: https://developer.mozilla.org/pt-BR/docs/Web/CSS/text-rendering)
+*/
 body {
-	line-height: 1;
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* Reset do box-model (default: content-box), dessa
+forma, ao aplicar padding, ele não vai acrescentar à
+altura ou largura do elemento, mas consumir o espaço interno
+disponível */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Habilita smooth scrolling no HTML apenas quando o foco está
+na página (a página pode ser scrollada por agentes externos).
+Dentro de uma tag de supports pois a cobertura dele no Caniuse
+é de apenas 75% ainda. */
+@supports (scroll-behavior: smooth) {
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+}
+
+/*
+ Remove as animações pra usuários que possuem algum tipo de
+ deficiência seja afetada por movimentações bruscas de
+ elementos visuais(ou que só prefiram sem animação msm)
+
+ código do Andy Bell em: https://piccalil.li/blog/a-modern-css-reset/
+*/
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

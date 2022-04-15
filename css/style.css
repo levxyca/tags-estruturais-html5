@@ -1,3 +1,4 @@
+/* Base */
 :root {
   --color-bg: rgb(37, 37, 37);
   --color-text: rgb(255, 246, 255);
@@ -88,6 +89,8 @@ O grid fica dessa forma
 
 */
 
+/* Main code */
+
 .tag-container {
   display: grid;
   grid-template-columns: 200px repeat(2, 1fr);
@@ -101,10 +104,8 @@ O grid fica dessa forma
   margin-top: 60px;
 }
 
-.p-1 { padding: 1rem; }
-
-.flex {
-  display: flex;
+.tag-container .p__tag {
+  width: min-content;
 }
 
 .arrow__icon {
@@ -115,20 +116,6 @@ O grid fica dessa forma
   left: 10%;
   cursor: pointer;
   animation: arrow 1s cubic-bezier(0.39, 0.58, 0.57, 1) infinite;
-}
-
-@keyframes arrow {
-  0% {
-    bottom: calc(100vh - 90%);
-  }
-
-  50% {
-    bottom: calc(100vh - 89%);
-  }
-
-  100% {
-    bottom: calc(100vh - 90%);
-  }
 }
 
 .p__tag {
@@ -166,12 +153,6 @@ a:hover .p__tag::before {
   margin: 0 0 50px 0;
 }
 
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .elemento__card {
   background-color: var(--color-card-text);
   border: 1px solid var(--color-text);
@@ -181,6 +162,21 @@ a:hover .p__tag::before {
 
 .header {
   grid-area: header;
+}
+
+.nav {
+  grid-area: nav;
+  color: var(--color-text);
+}
+
+.nav ul {
+  display: flex;
+  column-gap: 2ch;
+}
+
+.nav li {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
 }
 
 .aside {
@@ -205,20 +201,6 @@ article .elemento__card {
   padding: 2ch 0;
 }
 
-.nav {
-  grid-area: nav;
-  color: var(--color-text);
-}
-
-.nav ul {
-  display: flex;
-  column-gap: 2ch;
-}
-
-.nav li {
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-}
 
 .article {
   display: grid;
@@ -246,6 +228,7 @@ article .elemento__card {
   place-items: center;
 }
 
+/* Media Queries */
 @media (max-width: 800px) {
   /*
     Quando o dispositivo fica com menos de 800px de largura
@@ -264,5 +247,29 @@ article .elemento__card {
   }
 
   .tag-container > * { grid-area: initial; }
-  
 }
+
+/* Animations */
+@keyframes arrow {
+  0% {
+    bottom: calc(100vh - 90%);
+  }
+
+  50% {
+    bottom: calc(100vh - 89%);
+  }
+
+  100% {
+    bottom: calc(100vh - 90%);
+  }
+}
+
+
+/* Utility */
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-1 { padding: 1rem; }

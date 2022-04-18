@@ -1,0 +1,32 @@
+@media (max-width: 800px) {
+  /*
+    Quando o dispositivo fica com menos de 800px de largura
+    o grid fica com apenas uma coluna, as áreas são resetadas
+    pro valor inicial (none)
+
+    Os filhos do grid tem suas grid-areas resetadas pra initial
+    (none)
+
+    Dessa forma a ordenação de empilhamento é a mesma que a ordem
+    que os elementos aparecem no DOM.
+  */
+  .tag-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: initial;
+    margin-top: 30px;
+  }
+
+  .tag-container > * { grid-area: initial; }
+
+  .arrow__icon {
+    left: initial; right: 5%;
+    border-radius: 50%;
+    background-color: var(--color-text);
+  }
+
+  .arrow__icon img {
+    filter: invert(100%);
+  }
+
+  .article { grid-template-columns: 1fr; }
+}
